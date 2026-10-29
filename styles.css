@@ -3,6 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
+    outline: none;
 }
 
 body {
@@ -10,7 +11,7 @@ body {
 }
 
 .logo {
-    width: 300px;
+    width: 200px;
     margin: 20px auto;
     display: block;
 }
@@ -20,5 +21,21 @@ main {
     background-color: #D1CCDC;
     border-radius: 10px;
     margin: 0 auto;
-    padding
+    padding: 50px;
+}
+
+label {
+    color: #3D2C2E;
+    font-weight: 400;
+    font-size: 15px;
+}
+
+select {
+    background: #F5EDF0;
+    border: 2px solid #886F68;
+    border-radius: 10px;
+    height: 55px;
+    width: 100%;
+    margin-bottom: 25px;
+    appearance: none;
 }
