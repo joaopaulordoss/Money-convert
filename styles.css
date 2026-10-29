@@ -1,0 +1,24 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background: #F5EDF0;
+}
+
+.logo {
+    width: 300px;
+    margin: 20px auto;
+    display: block;
+}
+
+main {
+    width: 400px;
+    background-color: #D1CCDC;
+    border-radius: 10px;
+    margin: 0 auto;
+    padding
+}
