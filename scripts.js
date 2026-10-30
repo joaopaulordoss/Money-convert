@@ -2,11 +2,25 @@ const convertButton = document.querySelector(".convert-button")
 const currencySelect = document.querySelector(".currency-select")
 
 function convertValues(){
-    const inputCurrencyValue = document.querySelector(".input-currency").value
+    let inputCurrencyValue = document.querySelector(".input-currency").value
+    inputCurrencyValue = inputCurrencyValue.replace(",", "."); 
+    inputCurrencyValue = Number(inputCurrencyValue); 
 
     const currencyValueToConvert = document.querySelector(".currency-value-to-convert") //Valor em Reak
     
     const currencyValueConverted = document.querySelector(".currency-value") //Outras moedas
+
+        if (isNaN(inputCurrencyValue) || inputCurrencyValue === 0) {
+        currencyValueToConvert.innerHTML = new Intl.NumberFormat("pt-BR", {
+            style: "currency",
+            currency: "BRL"
+        }).format(0);
+        currencyValueConverted.innerHTML = new Intl.NumberFormat("pt-BR", {
+            style: "currency",
+            currency: "BRL"
+        }).format(0);
+        return;
+    }
     
     console.log(currencySelect.value)
     const dolarToday = 5.4
@@ -47,9 +61,37 @@ function convertValues(){
         style: "currency",
         currency:"BRL"
     }).format(inputCurrencyValue)
-
-    
 }
 
+function changeCurrency(){
+    const currencyName = document.getElementById("currency-name")
+    const currencyImage =document.querySelector(".currency-image")
+
+    if(currencySelect.value == "dolar") {
+    currencyName.innerHTML = "Dólar Americano"
+    currencyImage.src = "./assets/dolar.png"
+    }
+    
+    if(currencySelect.value == "euro") {
+    currencyName.innerHTML = "Euro"
+    currencyImage.src = "./assets/euro.png"
+    }
+
+    if(currencySelect.value == "libra") {
+    currencyName.innerHTML = "Libra Esterlina"
+    currencyImage.src = "./assets/libra.png"
+    }
+
+    if(currencySelect.value == "bit") {
+    currencyName.innerHTML = "Bitcoin"
+    currencyImage.src = "./assets/bitcoin.png"
+    }
+
+
+    convertValues()
+}    
+
+currencySelect.addEventListener("change", changeCurrency)
 convertButton.addEventListener("click", convertValues)
+
 
